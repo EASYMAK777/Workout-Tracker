@@ -12,7 +12,7 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
-mongoose.connect( process.env.MONGODB_URI || 'mongodb://localhost/Workout-Tracker',
+mongoose.connect( process.env.MONGODB_URI || 'mongodb://localhost/workout',
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,
@@ -21,8 +21,8 @@ mongoose.connect( process.env.MONGODB_URI || 'mongodb://localhost/Workout-Tracke
     }
   );
   
-require("./controllers/api-routes")(app);
-require("./controllers/html-routes")(app);
+require("./controllers/api-controllers")(app);
+require("./controllers/html-controllers")(app);
 
 
 app.listen(PORT, () => {
